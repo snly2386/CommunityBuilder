@@ -7,7 +7,8 @@ Rails.application.routes.draw do
       resources :comments, only:[:create]
     end
   end
-  resources :projects, only:[:index, :show]
+  resources :projects, only:[:index, :show, :create]
+ 
 
 
 

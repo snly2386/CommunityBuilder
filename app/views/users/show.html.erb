@@ -2,14 +2,32 @@
 
 <h2> List a project </h2>
 
-<%= form_tag "/users/#{current_user.id}/projects", :method => :post, multipart: true do %>
-<%= label_tag "Project Name"%><br>
-<%= text_field_tag :name %><br>
-<%= label_tag "Address" %><br>
-<%= text_field_tag :address %><br>
-<%= label_tag "Description" %><br>
-<%= text_area_tag :description %><br>
-<%= label_tag "Upload an Image" %><br>
-<%= file_field_tag "image" %><br>
-<%= submit_tag "List Project" %>
+
+
+
+<%= form_for @project do |f| %>
+
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+
+  
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+
+   <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </p>
+ 
+ 
+  <p><%= f.submit %></p>
 <% end %>

@@ -1,8 +1,13 @@
 class ProjectsController < ApplicationController
   def create
-    @project = Project.create(:name => params[:name], :address => params[:address], :description => params[:description], :image => params[:image].original_filename)
+    @project = Project.new(project_params)
+    @project.user_id = current_user.id
+    @image = params[:project][:image]
+    @project.image = @image.original_filename
+    if @project.save 
     flash[:create] = "Successfully Listed Project"
     redirect_to "/users/#{current_user.id}/projects/#{@project.id}"
+  end
   end
 
   def show
@@ -13,4 +18,10 @@ class ProjectsController < ApplicationController
   def index
 
   end
+
+  private
+  def project_params
+    params.require(:project).permit(:address, :description, :name)
+  end
+
 end
