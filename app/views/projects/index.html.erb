@@ -1,0 +1,7 @@
+<h1> Select a City </h1>
+<ul>
+<% @cities.each do |city| %>
+<li><%=link_to(city, filtered_index_path(:city => city)) %></li>
+<% end %>
+</ul>
+

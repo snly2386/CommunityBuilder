@@ -4,7 +4,11 @@ class ProjectsController < ApplicationController
     @project.user_id = current_user.id
     @image = params[:project][:image]
     @project.image = @image.original_filename
-    if @project.save 
+    if params[:project][:address] == ""
+      flash[:address] = "Enter an Address"
+      redirect_to "/users/#{current_user.id}"
+    
+    elsif @project.save 
     flash[:create] = "Successfully Listed Project"
     redirect_to "/users/#{current_user.id}/projects/#{@project.id}"
   end
@@ -16,12 +20,23 @@ class ProjectsController < ApplicationController
   end
 
   def index
+    @projects = Project.all
+    @cities = []
+    @projects.each do |project| 
+      if !@cities.include?(project.city)
+        @cities.push(project.city)
+      end
+    end
+    @cities.sort!
+  end
 
+  def filtered_index
+    
   end
 
   private
   def project_params
-    params.require(:project).permit(:address, :description, :name)
+    params.require(:project).permit(:address, :description, :name, :city)
   end
 
 end

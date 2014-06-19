@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619143747) do
+ActiveRecord::Schema.define(version: 20140619205827) do
 
   create_table "comments", force: true do |t|
     t.integer  "project_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140619143747) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "user_id"
+    t.string   "city"
   end
 
   create_table "users", force: true do |t|
