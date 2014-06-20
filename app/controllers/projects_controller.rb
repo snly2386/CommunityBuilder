@@ -31,7 +31,9 @@ class ProjectsController < ApplicationController
   end
 
   def filtered_index
-    
+    @city = params[:city]
+    @projects = Project.where(:city => @city)
+    @projects.sort_by{|project| project.created_at}
   end
 
   private

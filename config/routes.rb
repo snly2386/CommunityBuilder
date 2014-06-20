@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :projects, only:[:index, :show, :create]
+  get '/filtered_index' => "projects#filtered_index"
  
 
 
