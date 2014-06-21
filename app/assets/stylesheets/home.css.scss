@@ -1,3 +1,45 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body {
+  
+}
+
+.backshit {
+  background-image: url('http://matchbin-assets.s3.amazonaws.com/public/sites/345/assets/FT0R_LIC_Stop_Sign5_6.5.JPG');
+  background-repeat: no-repeat;
+  height: 450px;
+  background-size: 100%;
+}
+
+.btn-group-community {
+ margin: auto;
+ width: 30%;
+ text-algin: center;
+ vertical-align: middle;
+ padding-top: 350px;
+
+ }
+
+ .btn-home {
+  width:30%;
+  color: white;
+  border: 2px solid white;
+  background-color: transparent;
+ }
+
+ .btn-home:hover{
+ background-color: white;
+ color: black;
+ border: 2px solid white;
+ border-radius: 60px;
+ }
+
+.fix {
+  font-size: 50px;
+  letter-spacing: 5px;
+  text-align: center;
+  padding-top: 100px;
+ }

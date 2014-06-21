@@ -1,3 +1,32 @@
-<h1> COMMUNITY HOME PAGE </h1>
+<%= nav_bar :fixed => :top, :brand => "CommunityProject", :responsive => true do %>
+    <%= menu_group do %>
+        <%= menu_item "Home", root_path %>
+        <%= menu_divider %>
+        <%= drop_down "Products" do %>
+            <%= menu_item "Things you can't afford" %>
+            <%= menu_item "Things that won't suit you anyway"%>
+            <%= menu_item "Things you're not even cool enough to buy anyway" %>
+            
+        <% end %>
+        <%= menu_item "About Us" %>
+        <%= menu_item "Contact" %>
+    <% end %>
+    <%= menu_group :pull => :right do %>
+            <%= menu_item "Sign In", "/users/sign_in" %>
+            <%= menu_item "Log Out" %>
+            <% end -%>
+        <% end %>
 
-<a href="/users/sign_in">Sign In </a>
+
+
+<div class="backshit"> 
+<div class="btn-group-community">
+  <button class="btn-home">Sign In</button>
+  <button class="btn-home">Projects in your City</button>
+  <button class="btn-home">Contact</button>
+</div> 
+</div>
+
+<div class="fix">FIX YOUR COMMUNITY TODAY!</div>
+
+
