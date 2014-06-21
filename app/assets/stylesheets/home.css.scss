@@ -3,9 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-body {
-  
-}
+
 
 .backshit {
   background-image: url('http://matchbin-assets.s3.amazonaws.com/public/sites/345/assets/FT0R_LIC_Stop_Sign5_6.5.JPG');
@@ -69,7 +67,80 @@ body {
     color: black;
  }
 
- .span4-su {
-   color: yellow;
-   border: 1px solid green;
+ .signage {
+    width: 100px;
  }
+
+ .topofpage {
+    height: 150px;
+    width: 20%;
+    margin: 0 auto;
+    font-size: 40px;
+    line-height: 1em;
+    text-align: center;
+    padding-top: 200px;
+    font-family: 'Changa One', cursive;
+    color:white;
+
+ }
+
+ .su {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+  background-color: blue;
+  color: yellow;
+ }
+
+ .sulabel{
+  width: 50%;
+  margin: 0 auto;
+  font-size: 2em;
+  font-family: 'Changa One', cursive;
+
+ }
+
+ #user_name, #user_email {
+    margin: 0 auto;
+    display: block;
+ }
+
+ .twoseconds {
+    font-size: 20px;
+    color: #64FA19;
+ }
+
+.signbutton {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.sb {
+  display:block;
+  margin: 0 auto;
+  width: 100px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-weight: 3px;
+}
+
+.sb:hover {
+  background-color: blue;
+  color:white;
+}
+
+.wallpaper {
+  background-image: url("http://www.someplacesafe.info/wp-content/uploads/2011/03/images.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 700px;
+
+}
+
+@media (max-width: 1300px) {
+  body {
+    padding-top: 0px;
+  }
+}
