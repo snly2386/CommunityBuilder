@@ -1,44 +1,198 @@
-<h1> Welcome, <%=current_user.name%> </h1>
-<%=link_to("Sign Out", destroy_user_session_path, :method => "delete") %>
-<% if flash[:address] %>
-<h2> <%=flash[:address]%> </h2>
-<% end %>
 
-<%=link_to("See All Projects", "/projects") %>
-<h2> List a project </h2>
+
+
+<!-- Modernizr -->
 
 
 
 
-<%= form_for @project do |f| %>
+<body>
+<script type="text/javascript"> <%= render "/home/jstuff/modernizr.js"%></script>
+<script type="text/javascript">
 
-  <p>
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </p>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'Insert Your Code']);
+  _gaq.push(['_trackPageview']);
 
-  <p>
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </p>
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<!-- This section is for Splash Screen -->
+<div class="ole">
+<section id="jSplash">
+  <div id="circle"></div>
+</section>
+</div>
+<!-- End of Splash Screen -->
+
+<!-- Homepage Slider -->
+<div id="home-slider">  
+    <div class="overlay"></div>
+
+    <div class="slider-text">
+     
+      <div id="slidecaption">Welcome, <%=current_user.name%> </div>
+      <div class="signout"><%=link_to("Not #{current_user.name}? Sign Out", destroy_user_session_path, method: :delete) %> </div>
+    </div>   
+  
+  <div class="control-nav">
+        <a id="prevslide" class="load-item"><i class="font-icon-arrow-simple-left"></i></a>
+        <a id="nextslide" class="load-item"><i class="font-icon-arrow-simple-right"></i></a>
+        <ul id="slide-list"></ul>
+        
+        <a id="nextsection" href="#work"><i class="font-icon-arrow-simple-down"></i></a>
+    </div>
+</div>
+<!-- End Homepage Slider -->
+
+<!-- Header -->
+<header>
+    <div class="sticky-nav">
+      <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+        
+        <div id="logo">
+         
+        </div>
+        
+        <nav id="menu">
+          <ul id="menu-nav">
+              <li class="current"><a href="#home-slider">Top</a></li>
+                <li><a href="#ourwork">placeholder</a></li>
+                <li><a href="#about">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+        <li><a href="#" class="external">Placeholder</a></li>
+            </ul>
+        </nav>
+        
+    </div>
+</header>
+<!-- End Header -->
+
+
+<div id="work" class="page">
+  <div class="container">
+      <!-- Title Page -->
+        <div class="row">
+            <div class="span12">
+                <div class="title-page">
+                    <h2 class="title">Report a Project</h2>
+                    <div>
+
+                        <%= form_for @project do |f| %>
+
+                          <p>
+                            <%= f.label :city %><br />
+                            <%= f.text_field :city %>
+                          </p>
+
+                          <p>
+                            <%= f.label :address %><br />
+                            <%= f.text_field :address %>
+                          </p>
+
+
+                          
+                          <p>
+                            <%= f.label :name %><br />
+                            <%= f.text_field :name %>
+                          </p>
+
+                          <p>
+                            <%= f.label :description %><br />
+                            <%= f.text_field :description %>
+                          </p>
+
+                          <p>
+                            <%= f.label :image %><br />
+                            <%= f.file_field :image %>
+                          </p>
+                         
+                         
+                          <p><%= f.submit "List Project", :class => "sb3" %></p>
+                        <% end %>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <!-- End Title Page -->
+        
+        <!-- Portfolio Projects -->
+        
+
+<!-- About Section -->
+<div id="about" class="page-alternate">
+<div class="container">
+    <!-- Title Page -->
+    <div class="row">
+        <div class="span12">
+            <div class="title-page">
+                <h2 class="title"><a href="/projects">View all Projects</a></h2>
+                <h3 class="title-description"><a href="/users/sign_in"></a></h3>
+            </div>
+        </div>
+    </div>
+    <!-- End Title Page -->
+    
+    
+
+
+
+<!-- Socialize -->
+<div id="social-area" class="page">
+  <div class="container">
+      <div class="row">
+            <div class="span12">
+                <nav id="social">
+                    <ul>
+                        <li><a href="#" title="" target="_blank"><span class="font-icon-social-twitter">C</span></a></li>
+                        <li><a href="#" title="Follow Me on Dribbble" target="_blank"><span class="font-icon-social-dribbble">o</span></a></li>
+                        <li><a href="#" title="Follow Me on Forrst" target="_blank"><span class="font-icon-social-forrst">m</span></a></li>
+                        <li><a href="#" title="Follow Me on Behance" target="_blank"><span class="font-icon-social-behance">m</span></a></li>
+                        <li><a href="#" title="Follow Me on Facebook" target="_blank"><span class="font-icon-social-facebook">u</span></a></li>
+                        <li><a href="#" title="Follow Me on Google Plus" target="_blank"><span class="font-icon-social-google-plus">n</span></a></li>
+                        <li><a href="#" title="Follow Me on LinkedIn" target="_blank"><span class="font-icon-social-linkedin">i</span></a></li>
+                        <li><a href="#" title="Follow Me on ThemeForest" target="_blank"><span class="font-icon-social-envato">t</span></a></li>
+                        <li><a href="#" title="Follow Me on Zerply" target="_blank"><span class="font-icon-social-zerply">y</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Socialize -->
+
+
+
+<!-- Js -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- jQuery Core -->
+<script type="text/javascript"> <%= render "/home/jstuff/bootstrap.min.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/supersized.3.2.7.min.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/waypoints.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/waypointsticky.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/jquery.isotope.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/jquery.fancybox.pack.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/jquery.fancyboxmedia.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/jquery.tweet.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/plugins.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/main.js" %></script>
+
+
+
+
 
 
   
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
 
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
 
-  <p>
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
-  </p>
- 
- 
-  <p><%= f.submit %></p>
-<% end %>
+
+
+
+
+
+
+

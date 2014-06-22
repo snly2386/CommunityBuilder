@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
   def filtered_index
     @city = params[:city]
     @projects = Project.where(:city => @city)
-    @projects.sort_by{|project| project.created_at}
+    @projects_sorted = @projects.sort_by{|project| project.created_at}.reverse
   end
 
   private

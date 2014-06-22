@@ -1,7 +1,216 @@
-<h1> Projects for <%=@city%></h1>
 
-<%=link_to("Sign Out", destroy_user_session_path, :method => "delete") %>
-<ul>
-<% @projects.each do |project| %>
-  <li><%=link_to(project.name, "/projects/#{project.id}") %> : Created at: <%= project.created_at%> </li>
-<% end %>
+
+
+
+<!-- Modernizr -->
+
+
+
+
+<body>
+<script type="text/javascript"> <%= render "/home/jstuff/modernizr.js"%></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'Insert Your Code']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<!-- This section is for Splash Screen -->
+<div class="ole">
+<section id="jSplash">
+  <div id="circle"></div>
+</section>
+</div>
+<!-- End of Splash Screen -->
+
+<!-- Homepage Slider -->
+<div id="home-slider">  
+    <div class="overlay"></div>
+
+    <div class="slider-text">
+     
+      <div id="slidecaption">Community Project</div>
+      <% if user_signed_in? %>
+      <div class="signout"><%=link_to("Not #{current_user.name}? Sign Out", destroy_user_session_path, method: :delete) %> </div>
+    </div>
+    <% end %>
+      
+    </div>   
+  
+  <div class="control-nav">
+        <a id="prevslide" class="load-item"><i class="font-icon-arrow-simple-left"></i></a>
+        <a id="nextslide" class="load-item"><i class="font-icon-arrow-simple-right"></i></a>
+        <ul id="slide-list"></ul>
+        
+        <a id="nextsection" href="#work"><i class="font-icon-arrow-simple-down"></i></a>
+    </div>
+</div>
+<!-- End Homepage Slider -->
+
+<!-- Header -->
+<header>
+    <div class="sticky-nav">
+      <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+        
+        <div id="logo">
+         
+        </div>
+        
+        <nav id="menu">
+          <ul id="menu-nav">
+              <li class="current"><a href="#home-slider">Home</a></li>
+                <li><a href="#ourwork">placeholder</a></li>
+                <li><a href="#about">placeholder</a></li>
+                <li><a href="#contact">Contact</a></li>
+        <li><a href="shortcodes.html" class="external">Placeholder</a></li>
+            </ul>
+        </nav>
+        
+    </div>
+</header>
+<!-- End Header -->
+
+
+<div id="work" class="page">
+  <div class="container">
+      <!-- Title Page -->
+        <div class="row">
+            <div class="span12">
+                <div class="title-page">
+                    <h2 class="title">Latest Reported Projects for <%=@city%></h2>
+                    <h3 class="title-description"> <%=link_to "List a project", "/users/#{current_user.id}"%> and help your community!</h3>
+                </div>
+            </div>
+        </div>
+        <!-- End Title Page -->
+        
+        <!-- Portfolio Projects -->
+        <div class="row">
+          <div class="span3">
+              <!-- Filter -->
+                <nav id="options" class="work-nav">
+                    <ul id="filters" class="option-set" data-option-key="filter">
+                      <li class="type-work">Type of Problem</li>
+                        <li><a href="#filter" data-option-value="*" class="selected">All Projects</a></li>
+                        <li><a href="#filter" data-option-value=".Road">Road</a></li>
+                        <li><a href="#filter" data-option-value=".Building">Building</a></li>
+                        <li><a href="#filter" data-option-value=".Other">Other</a></li>
+                    </ul>
+                </nav>
+                <!-- End Filter -->
+            </div>
+            
+            <div class="span9">
+              <div class="row">
+                  <section id="projects">
+                      <ul id="thumbs">
+
+                     <% @projects_sorted.each do |project| %>
+                       
+              <!-- Item Project and Filter Name -->
+                          <li class="item-thumbs span3 ">
+                              <!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                              <div class="caption"> <%=project.name%>: <%=project.created_at%> </div>
+                              <a class="hover-wrap fancybox" data-fancybox-group="gallery"  href="/projects/<%=project.id%>">
+                                  <span class="overlay-img"></span>
+                                  
+                                    <span class="overlay-img-thumb font-icon-plus">Community</span>
+                                
+                                </a>
+                                <!-- Thumb Image and Description -->
+
+                                <%=image_tag(project.image, style: "height: 270px; width: 270px;")%>
+                               
+                            </li>
+                            <% end %>
+                          <!-- End Item Project -->
+                            
+              
+                        </ul>
+                    </section>
+                    
+              </div>
+            </div>
+        </div>
+        <!-- End Portfolio Projects -->
+    </div>
+</div>
+<!-- End Our Work Section -->
+
+<!-- About Section -->
+<div id="about" class="page-alternate">
+<div class="container">
+    <!-- Title Page -->
+    <div class="row">
+        <div class="span12">
+            <div class="title-page">
+                <h2 class="title"><%=link_to("Back to Profile", "/users/#{current_user.id}")%></h2>
+                
+            </div>
+        </div>
+    </div>
+    <!-- End Title Page -->
+    
+    
+
+
+
+<!-- Socialize -->
+<div id="social-area" class="page">
+  <div class="container">
+      <div class="row">
+            <div class="span12">
+                <nav id="social">
+                    <ul>
+                        <li><a href="#" title="" target="_blank"><span class="font-icon-social-twitter">C</span></a></li>
+                        <li><a href="#" title="Follow Me on Dribbble" target="_blank"><span class="font-icon-social-dribbble">o</span></a></li>
+                        <li><a href="#" title="Follow Me on Forrst" target="_blank"><span class="font-icon-social-forrst">m</span></a></li>
+                        <li><a href="#" title="Follow Me on Behance" target="_blank"><span class="font-icon-social-behance">m</span></a></li>
+                        <li><a href="#" title="Follow Me on Facebook" target="_blank"><span class="font-icon-social-facebook">u</span></a></li>
+                        <li><a href="#" title="Follow Me on Google Plus" target="_blank"><span class="font-icon-social-google-plus">n</span></a></li>
+                        <li><a href="#" title="Follow Me on LinkedIn" target="_blank"><span class="font-icon-social-linkedin">i</span></a></li>
+                        <li><a href="#" title="Follow Me on ThemeForest" target="_blank"><span class="font-icon-social-envato">t</span></a></li>
+                        <li><a href="#" title="Follow Me on Zerply" target="_blank"><span class="font-icon-social-zerply">y</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Socialize -->
+
+
+
+<!-- Js -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- jQuery Core -->
+<script type="text/javascript"> <%= render "/home/jstuff/bootstrap.min.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/supersized.3.2.7.min.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/waypoints.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/waypointsticky.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/jquery.isotope.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/jquery.fancybox.pack.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/jquery.fancyboxmedia.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/jquery.tweet.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/plugins.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/main.js" %></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+

@@ -1,25 +1,184 @@
 
-<% if flash[:create] %>
-<%= flash[:create] %>
-<% end %>
-<h1><%= @project.name%> </h1>
-<h2><%= @project.address%> </h2>
-<p> <%= @project.description%> </p>
-<%=image_tag(@project.image)%>
-
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@project.latitude}%2C#{@project.longitude}" %>
 
 
-<h1>Comments</h2>
-  <%=form_tag "/users/#{current_user.id}/projects/#{@project.id}/comments", :method => "post", :remote => true do %>
-  <%=label_tag "Enter Comment" %>
-  <%=text_area_tag :content, nil, class: "commentarea" %> <br>
-  <%=submit_tag "Submit Comment" %>
-  <% end %>
 
-  <div class="comments"> 
-    <%@comments.each do |comment| %>
-    <h4><%=comment.user.name%></h4>
-    <p><%=comment.content%></p>
-    <% end %>
-  </div>
+<!-- Modernizr -->
+
+
+
+
+<body>
+<script type="text/javascript"> <%= render "/home/jstuff/modernizr.js"%></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'Insert Your Code']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<!-- This section is for Splash Screen -->
+<div class="ole">
+<section id="jSplash">
+  <div id="circle"></div>
+</section>
+</div>
+<!-- End of Splash Screen -->
+
+<!-- Homepage Slider -->
+<div id="home-slider">  
+    <div class="overlay"></div>
+
+    <div class="slider-text">
+     
+      <div id="slidecaption">Community Project</div>
+      <div class="signout"><%=link_to("Not #{current_user.name}? Sign Out", destroy_user_session_path, method: :delete) %> </div>
+    </div>   
+  
+  <div class="control-nav">
+        <a id="prevslide" class="load-item"><i class="font-icon-arrow-simple-left"></i></a>
+        <a id="nextslide" class="load-item"><i class="font-icon-arrow-simple-right"></i></a>
+        <ul id="slide-list"></ul>
+        
+        <a id="nextsection" href="#work"><i class="font-icon-arrow-simple-down"></i></a>
+    </div>
+</div>
+<!-- End Homepage Slider -->
+
+<!-- Header -->
+<header>
+    <div class="sticky-nav">
+      <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+        
+        <div id="logo">
+         
+        </div>
+        
+        <nav id="menu">
+          <ul id="menu-nav">
+              <li class="current"><a href="#home-slider">Home</a></li>
+                <li><a href="#ourwork">placeholder</a></li>
+                <li><a href="#about">Sign In</a></li>
+                <li><a href="#contact">Contact</a></li>
+        <li><a href="shortcodes.html" class="external">Placeholder</a></li>
+            </ul>
+        </nav>
+        
+    </div>
+</header>
+<!-- End Header -->
+
+
+<div id="work" class="page">
+  <div class="container">
+      <!-- Title Page -->
+        <div class="row">
+            <div class="span12">
+                <div class="title-page">
+                    <h2 class="title"><%=@project.name%></h2>
+                    <h3 class="title-description"> <a href="#"><%=@project.description%></a> at <%=@project.address%></h3>
+                    <div> 
+                        <%=image_tag(@project.image, style: "height:300px; width:450px;")%>
+
+                        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@project.latitude}%2C#{@project.longitude}" %>
+
+                    </div>
+                    <div class="comments">
+                      <div class="commentheader"> <strong>Comments</strong> </div>
+                        <div>
+                          <%=form_tag "/users/#{current_user.id}/projects/#{@project.id}/comments", :method => "post", :remote => true do %>
+                          <%=label_tag "Enter Comment" %>
+                          <%=text_area_tag :content, nil, class: "commentarea" %> <br>
+                          <%=submit_tag "Submit Comment", class: "sc" %>
+                          <% end %>
+                        </div> 
+                        <div class="commentplace">
+                            <%@comments.each do |comment| %>
+                            <h5><%=comment.user.name%></h5>
+                            <p><%=comment.content%></p>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Title Page -->
+        
+        <!-- Portfolio Projects -->
+        
+<!-- End Our Work Section -->
+
+<!-- About Section -->
+<div id="about" class="page-alternate">
+<div class="container">
+    <!-- Title Page -->
+    <div class="row">
+        <div class="span12">
+            <div class="title-page">
+                <h2 class="title"><a href="/projects">View All Projects</a></h2>
+                
+            </div>
+        </div>
+    </div>
+    <!-- End Title Page -->
+    
+    
+
+
+
+<!-- Socialize -->
+<div id="social-area" class="page">
+  <div class="container">
+      <div class="row">
+            <div class="span12">
+                <nav id="social">
+                    <ul>
+                        <li><a href="#" title="" target="_blank"><span class="font-icon-social-twitter">C</span></a></li>
+                        <li><a href="#" title="Follow Me on Dribbble" target="_blank"><span class="font-icon-social-dribbble">o</span></a></li>
+                        <li><a href="#" title="Follow Me on Forrst" target="_blank"><span class="font-icon-social-forrst">m</span></a></li>
+                        <li><a href="#" title="Follow Me on Behance" target="_blank"><span class="font-icon-social-behance">m</span></a></li>
+                        <li><a href="#" title="Follow Me on Facebook" target="_blank"><span class="font-icon-social-facebook">u</span></a></li>
+                        <li><a href="#" title="Follow Me on Google Plus" target="_blank"><span class="font-icon-social-google-plus">n</span></a></li>
+                        <li><a href="#" title="Follow Me on LinkedIn" target="_blank"><span class="font-icon-social-linkedin">i</span></a></li>
+                        <li><a href="#" title="Follow Me on ThemeForest" target="_blank"><span class="font-icon-social-envato">t</span></a></li>
+                        <li><a href="#" title="Follow Me on Zerply" target="_blank"><span class="font-icon-social-zerply">y</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Socialize -->
+
+
+
+<!-- Js -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- jQuery Core -->
+<script type="text/javascript"> <%= render "/home/jstuff/bootstrap.min.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/supersized.3.2.7.min.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/waypoints.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/waypointsticky.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/jquery.isotope.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/jquery.fancybox.pack.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/jquery.fancyboxmedia.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/jquery.tweet.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/plugins.js" %></script>
+<script type="text/javascript"> <%= render "/home/jstuff/main.js" %></script>
+
+
+
+
+
+
+  
+
+
+
+
+

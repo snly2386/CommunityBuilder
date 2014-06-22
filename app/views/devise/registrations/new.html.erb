@@ -1,33 +1,36 @@
-<div class="wallpaper"> 
-  <div class="topofpage">Sign up <br> <span class="twoseconds"> It only takes 2 seconds! </span></div>
+
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+      <div class="signupcontents">
+
+        <div class="signuptitle">SIGN UP</div>
+
+        <div class="signupwrapper">
+          <div><%= f.label :email, class: "sulabel" %><br>
+          <%= f.email_field :email, autofocus: true, class: "su" %></div>
+
+          <div><%= f.label :name, class: "sulabel" %><br>
+          <%= f.text_field :name, autofocus: true, class: "su" %></div>
+
+          <div><%= f.label :password %><br>
+          <%= f.password_field :password, autocomplete: "off", class: "su" %></div>
+
+          <div><%= f.label :password_confirmation %><br>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "su" %></div>
+  
+
+        <div class="buttonwrap"><%= f.submit "Sign up", class: "sb", style: "width:200px; height:40px;"%></div>
  
+        <% end %>
+        </div>
+        <div class="signinlink"><a href="/users/sign_in">Already have an account? Sign In</a></div>
+        <div class="bottompic"> </div>
 
-  <div class="intheback">
-    <div class="row-fluid">
-      <div class="span4 signage"><%= f.label :email, class: "sulabel", style: "color: red;" %><br>
-      <%= f.email_field :email, autofocus: true, class: "su" %></div>
+      </div>
 
-      <div class="span4 signage"><%= f.label :name, class: "sulabel" %><br>
-      <%= f.text_field :name, autofocus: true, class: "su" %></div>
-
-      <div class="span4 signage"><%= f.label :password, style: "color: #64FA19; font-family:Changa One; font-size: 2em;" %><br>
-      <%= f.password_field :password, autocomplete: "off", class: "su" %>
-
-      <%= f.label :password_confirmation, style: "color: #64FA19; font-family:Changa One; font-size: 2em;" %><br>
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: "su" %></div>
-    </div>
-  </div>
-  <div class="row-fluid">
-    <div class="span4"></div>
-    <div class="span4 signbutton"><%= f.submit "Sign up", class: "sb", style: "width:200px; height:40px;"%></div>
-    <div class="span4"></div>
-  </div>
-    <% end %>
-  </div>
+    
 
 
 

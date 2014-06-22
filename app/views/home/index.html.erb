@@ -1,7 +1,5 @@
 
 
-
-
 <!-- Modernizr -->
 
 
@@ -38,7 +36,7 @@
     <div class="slider-text">
      
       <div id="slidecaption">Community Project</div>
-      <div class="signout"><%=link_to("Not #{current_user.name}? Sign Out", destroy_user_session_path, method: :delete) %> </div>
+      
     </div>   
   
   <div class="control-nav">
@@ -81,20 +79,61 @@
         <div class="row">
             <div class="span12">
                 <div class="title-page">
-                    <h2 class="title">Select a City</h2>
-                    <% @cities.each do |city| %>
-
-                    <h3 class="title-description"><%=link_to(city, filtered_index_path(:city => city)) %></h3>
-                      
-                      <% end %>
-                    </div>
+                    <h2 class="title">Latest Reported Projects</h2>
+                    <h3 class="title-description"> <a href="/users/sign_in">Sign In</a> to report a problem in your community!</h3>
                 </div>
             </div>
         </div>
         <!-- End Title Page -->
         
         <!-- Portfolio Projects -->
-        
+        <div class="row">
+          <div class="span3">
+              <!-- Filter -->
+                <nav id="options" class="work-nav">
+                    <ul id="filters" class="option-set" data-option-key="filter">
+                      <li class="type-work">Cities</li>
+                        <li><a href="#filter" data-option-value="*" class="selected">All Projects</a></li>
+                        <li><a href="#filter" data-option-value=".Chicago">Chicago</a></li>
+                        <li><a href="#filter" data-option-value=".Seattle">Seattle</a></li>
+                        <li><a href="#filter" data-option-value=".Austin">Austin</a></li>
+                    </ul>
+                </nav>
+                <!-- End Filter -->
+            </div>
+            
+            <div class="span9">
+              <div class="row">
+                  <section id="projects">
+                      <ul id="thumbs">
+
+                        <%@filtered.each do |project| %>
+                        
+              <!-- Item Project and Filter Name -->
+                          <li class="item-thumbs span3 <%=project.city%>">
+                              <!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                              <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="_include/img/work/full/image-01-full.jpg">
+                                  <span class="overlay-img"></span>
+                                  
+                                    <span class="overlay-img-thumb font-icon-plus">Community</span>
+                                
+                                </a>
+                                <!-- Thumb Image and Description -->
+                                <%=image_tag(project.image, style: "height:270px; width:270px;")%>
+                            </li>
+                            <% end %>
+                          <!-- End Item Project -->
+                            
+              
+                        </ul>
+                    </section>
+                    
+              </div>
+            </div>
+        </div>
+        <!-- End Portfolio Projects -->
+    </div>
+</div>
 <!-- End Our Work Section -->
 
 <!-- About Section -->
@@ -104,8 +143,8 @@
     <div class="row">
         <div class="span12">
             <div class="title-page">
-                <h2 class="title"><%=link_to("Back to Profile", "/users/#{current_user.id}")%></h2>
-                
+                <h2 class="title"><a href="/users/sign_up">Make an Account</a></h2>
+                <h3 class="title-description"><a href="/users/sign_in">or log in</a></h3>
             </div>
         </div>
     </div>
@@ -160,13 +199,6 @@
 
 
   
-
-
-
-
-
-
-
 
 
 

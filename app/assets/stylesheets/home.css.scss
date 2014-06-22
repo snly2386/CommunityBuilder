@@ -2,145 +2,124 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-
-.backshit {
-  background-image: url('http://matchbin-assets.s3.amazonaws.com/public/sites/345/assets/FT0R_LIC_Stop_Sign5_6.5.JPG');
-  background-repeat: no-repeat;
-  height: 450px;
-  background-size: 100%;
-  width: 100%;
-  background-attachment: fixed;
+.signupcontents {
+  color: #DE5E60;
 }
 
-.btn-group-community {
- margin: auto;
- width: 50%;
- text-algin: center;
- vertical-align: middle;
- padding-top: 350px;
-
- }
-
- .btn-home {
-  width:31%;
-  color: white;
-  border: 2px solid white;
-  background-color: transparent;
- }
-
- .btn-home:hover{
- background-color: white;
- color: black;
- border: 2px solid white;
-
- }
-
-.fix {
-  font-size: 50px;
-  letter-spacing: 5px;
+.signuptitle{
   text-align: center;
-  line-height: 3em;
-  font-family: 'Changa One', cursive;
-  height: 150px;
-  background-color: black;
-  color: silver;
- }
-
- .secondbackground {
-    background-image: url('http://vaguard.dodlive.mil/files/2013/08/WOCs-community-project.jpg');
-    background-repeat: no-repeat;
-    height:500px;
-    background-size: 100%;
-    vertical-align: middle;
- }
-
-
-
- a{
-    text-decoration: none;
- }
-
- .circlebutton:hover {
-    background-color: white;
-    color: black;
- }
-
- .signage {
-    width: 100px;
- }
-
- .topofpage {
-    height: 150px;
-    width: 20%;
-    margin: 0 auto;
-    font-size: 40px;
-    line-height: 1em;
-    text-align: center;
-    padding-top: 200px;
-    font-family: 'Changa One', cursive;
-    color:white;
-
- }
-
- .su {
-  width: 50%;
-  margin: 0 auto;
-  display: block;
-  background-color: blue;
-  color: yellow;
- }
-
- .sulabel{
-  width: 50%;
-  margin: 0 auto;
+  color: #DE5E60;
   font-size: 2em;
-  font-family: 'Changa One', cursive;
+  margin-top: 30px;
+}
 
- }
-
- #user_name, #user_email {
-    margin: 0 auto;
-    display: block;
- }
-
- .twoseconds {
-    font-size: 20px;
-    color: #64FA19;
- }
-
-.signbutton {
+.signupwrapper {
+  margin: auto; 
   width: 50%;
-  margin: 0 auto;
+}
+
+
+#user_email, #user_password, #user_name, #user_password_confirmation {
   display: block;
+  margin: auto;
 }
 
 .sb {
-  display:block;
-  margin: 0 auto;
-  width: 100px;
-  border: 2px solid white;
+  color: #DE5E60;
+  border: 2px solid #DE5E60;
   background-color: transparent;
-  color: white;
-  font-weight: 3px;
+
 }
 
 .sb:hover {
-  background-color: blue;
-  color:white;
+  color: white;
+  background-color: #DE5E60;
 }
 
-.wallpaper {
-  background-image: url("http://www.someplacesafe.info/wp-content/uploads/2011/03/images.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  height: 700px;
+.signinlink{
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  color: #DE5E60;
+}
+
+
+.bottompic {
+  background-image: url("");
+}
+
+.signintitle {
+  color: #DE5E60;
+  margin-top: 30px;
+  font-size: 2em;
+  text-align: center;
+}
+
+.signlab{
+  width: 50%;
+  margin: auto;
+  color: #DE5E60;
 
 }
 
-@media (max-width: 1300px) {
-  body {
-    padding-top: 0px;
-  }
+.buttonholder {
+  margin: auto;
+  width: 30%;
+  height: 30px;
+}
+
+.sb2 {
+  background-color: transparent;
+  color: #DE5E60;
+  border: 2px solid #DE5E60;
+  height: 100%;
+  width: 38%;
+  display: block;
+  margin: auto;
+}
+
+.sb2:hover {
+  background-color: #DE5E60;
+  color: white;
+}
+
+p {
+  color: #DE5E60;
+}
+
+.sb3 {
+  background-color: transparent;
+  color: #DE5E60;
+  border: 2px solid #DE5E60;
+  width: 30%;
+  height: 30px;
+}
+
+.sb3:hover {
+  background-color: #DE5E60;
+  color: white;
+}
+
+.signout {
+  font-size: 2em;
+}
+
+.sc {
+    background-color: transparent;
+    color: #DE5E60;
+    border: 2px solid #DE5E60;
+    width: 30%;
+    height: 30px;
+}
+
+.comments {
+  color: #DE5E60;
+}
+
+.commentheader {
+  font-size: 1.5em;
+}
+
+.caption {
+  color: #DE5E60;
 }
